@@ -1,0 +1,32 @@
+Create the environment from the environment.yml file:
+    cd to the github FacialPC folder on the anaconda prompt where the environment.yml file is
+    Run:
+        conda env create -f environmentv2.yml
+
+    Verify that the new environment was installed correctly:
+        conda env list
+        You can also use conda info --envs.
+
+    Activate the new environment: 
+        conda activate FacialPCv2
+
+Due to an error in the Speech Recognition Package:
+(https://github.com/Uberi/speech_recognition/issues/334),
+    Line 924 of <Anaconda3_Install_Location>\envs\FacialPCv1\lib\site-packages\speech_recognition\__init__.py:
+            speech_config["speechContext"] = {"phrases": preferred_phrases}
+    needs to be changed to:
+            speech_config["speechContexts"] = {"phrases": preferred_phrases}
+            
+    Note: for me <Anaconda3_Install_Location>=C:\ProgramData\Anaconda3
+            
+            
+A dependency on visual studios requires it be installed:
+    Downloaded visual studio:
+        https://visualstudio.microsoft.com/downloads/
+    Download c++ build tools:
+        https://visualstudio.microsoft.com/visual-cpp-build-tools/
+        
+        
+From the github FacialPC folder with the FacialPCv1 env activated, you should now be able to run:
+    python main.py
+    
